@@ -82,7 +82,7 @@ class ResNetBuilder():
             input_filters,
             base_filters,
             kernel=1,
-            stride=1
+            stride=(1 if down_sampling is False else 2),
         )
 
         if spatial_batch_norm:
@@ -95,8 +95,8 @@ class ResNetBuilder():
             base_filters,
             base_filters,
             kernel=3,
-            stride=(1 if down_sampling is False else 2),
-            pad=1
+            stride=1,
+            pad=1,
         )
 
         if spatial_batch_norm:
